@@ -33,12 +33,12 @@ def calc_vels(msg):
     v_y_b_r = v_y + w*r*math.cos(math.atan2(-y,-x)+math.pi)
     v_x_b_l = v_x + w*r*math.sin(math.atan2(y,-x)+math.pi)
     v_y_b_l = v_y + w*r*math.cos(math.atan2(y,-x)+math.pi)
-    
+
     w_f_r = (v_x_f_r - v_y_f_r)/(2*math.pi*wheel_r)*60
     w_f_l = (v_x_f_l + v_y_f_l)/(2*math.pi*wheel_r)*60
     w_b_r = (v_x_b_r + v_y_b_r)/(2*math.pi*wheel_r)*60
     w_b_l = (v_x_b_l - v_y_b_l)/(2*math.pi*wheel_r)*60
-    
+
     return (w_f_r, w_f_l, w_b_r, w_b_l)
 
 class TestedNode(Node):
@@ -63,7 +63,7 @@ class TestedNode(Node):
             'cmd_vel',
             self.cmd_vel_callback,
             10)
-        self.subscription  # prevent unused variable warning        
+        #self.subscription  # prevent unused variable warning
         self.publisher = self.create_publisher(Float32MultiArray, 'out_vel', 10)
 
     def cmd_vel_callback(self, msg):
@@ -82,6 +82,8 @@ class TestedNode(Node):
 
 
 def main(args=None):
+    """Main function
+    """
     rclpy.init(args=args)
 
     test_node = TestedNode()
