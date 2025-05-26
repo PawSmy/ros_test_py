@@ -5,7 +5,7 @@ from ros_testing_py.tested_node import *
 
 @pytest.mark.unit
 def test_math():
-    assert 2 + 2 == 4  # This should fail for most mathematical systems
+    assert 2 + 2 == 8  # This should fail for most mathematical systems
 
 
 @pytest.mark.unit
